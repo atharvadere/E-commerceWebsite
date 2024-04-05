@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .g{
+            border: 5px;
+            border-color: red;
+            border-style: solid;
+            margin:50px;
+            height: 400px;
+            width:33%;
+            align-items: start;
+            justify-items: center;
+            box-shadow: 10px 10px 10px rgb(99, 143, 158);
+            border-radius: 20px;
+            transition:transform 300ms ease-in-out;
+            background-color: white;
+            
+        }
+        .g:hover{
+            transform: scale(1.1);
+            background-color:rgb(253, 243, 244);
+        }
+        .m{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-left: 0px; 
+            margin-right: 0px;  
+        }
+        body{
+            background-image: url("Images/back6.jpg");   
+            background-size: cover;
+        }
+        img{
+            width:90% ;
+            height:60%;
+            object-fit:cover;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            border-radius: 10px;
+        }
+        h1,h3{
+            height: 10%;
+            text-align: center;
+            
+        }
+        p{
+            text-align: right;
+            font-size:80px;
+            font-style: oblique;
+            padding: 0;
+            margin-top: 50px;
+            margin-bottom: 0px;
+            font-weight: bold;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            color: rgb(68, 68, 157);
+        
+        }
+        a{
+            display: flex;
+            text-decoration: none;
+        }
+        button
+        {
+            background-color: white;
+            border-radius: 20px;
+            height: 60px;
+            width: 170px;
+            margin: 20px;
+            margin-bottom: 50px;
+        }
+        #mdiv{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #cart{
+            height:150px;
+            width:150px;
+            align-items: center;
+            float: left;
+        }
+        #fname{
+            float: left;
+        }
+        .first{
+            display: inline;
+            width: 55%;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="first" id="fname">
+    <p>SaathE</p>
+    </div>
+    <div class="first">
+    <img src="Images/cart.png" id="cart">
+    </div>
+
+    <div class="m">
+
+        <div class="g" id='ca' onclick="marke('ca','ha',0)">
+            <h1>Mi Note 10s Cover</h1>
+            <img src="Images/mobcov.jpg">
+            <h3 id="ha">Price : ₹180</h3>
+        </div>
+
+        <div class="g" id='cb' onclick="marke('cb','hb',1)" >
+            <h1>Oneplus Nord CE</h1>  
+            <img src="Images/mobile.png">
+            <h3 id="hb">Price : ₹16,000</h3>
+        </div>
+
+        <div class="g" id='cc' onclick="marke('cc','hc',2)" >
+            <h1>HP pavillion</h1>  
+            <img src="Images/laptop.jpg">
+            <h3 id="hc">Price : ₹56,000</h3>
+        </div>
+    </div>
+
+    <div class="m">
+
+        <div class="g" id='cd' onclick="marke('cd','hd',3)" >
+            <h1>Boat bassheads</h1>  
+            <img src="Images/earphone.jpg">
+            <h3 id="hd">Price : ₹200</h3>
+        </div>
+
+        <div class="g" id='ce' onclick="marke('ce','he',4)" >
+            <h1>Ambrane Car charger</h1>  
+            <img src="Images/carcharger.webp">
+            <h3 id="he">Price : ₹450</h3>
+        </div>
+
+        <div class="g" id='cf' onclick="marke('cf','hf',5)" >
+            <h1>Mi Mobile Charger</h1>  
+            <img src="Images/mobcharger.jpg">
+            <h3 id="hf">Price : ₹999</h3>
+        </div>
+
+    </div>
+
+    <div id="mdiv">
+    <button id="b1" onclick="save()">Proceed To Buy</button>
+    <button id="b2" onclick="clear1();window.location.reload();">Cancel</button>
+    
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

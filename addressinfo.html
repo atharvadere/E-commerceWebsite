@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Details</title>
+    <style>
+        div{
+            border :10px rgb(68, 68, 157) solid;
+            border-radius: 15px;
+            margin: 70px;
+            padding: 100px;
+        }
+        .c1
+        {
+            margin:20px;
+        }
+        body{
+            background-image: url("Images/back6.jpg");
+            background-size: cover;
+            color: black;
+        }
+        button{
+            margin: 30px;
+            margin-bottom: 0px;;
+            border-radius: 10px;
+            border : 1px rgb(68, 68, 157) solid;
+            height: 30px;
+            width : 80px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>Address Information :</h1>
+        Name : <input type="text"id="name"><br/>
+        Mobile Number : +91 <input type="number" id="mobno" class="c1"><br>
+        Address type : <input type="radio" name="r1" value="home" checked="checked" class="c1">
+        <label for="home">Home</label>
+        <input type="radio" name="r1" id="office" value="office" class="c1">
+        <label for="office">Office</label><br>
+
+        Locality : <input type="text" id="locality"><br>
+
+        City : <select id="city" class="c1">
+            <option value="pune">Pune</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="nashik">Nashik</option>
+        </select><br>
+        Pincode : <input type="number" maxlength="6" id="pincode" class="c1" required><br>
+
+        <button type ="submit" onclick="saveform()">Submit</button>
+        <button onclick="javascript:history.back();clear1();">Go Back</button>
+
+        <script src="main.js"></script>
+    </div>
+</body>
+</html>

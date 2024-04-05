@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Qr</title>
+    <style>
+
+        #i1{
+            border-radius: 10px;
+            border : 3px solid black;
+            width : 300px
+        }
+        h1{
+            font-size:6rem;
+            background: linear-gradient(to right,violet,indigo,red);
+            background-clip: text;
+            color: transparent;
+            margin: 0px;
+            margin-top: -40px;
+        }
+        body{
+            background-color: rgb(214, 222, 247);
+        }
+        #d0{
+            display: flex;
+            margin: 120px 100px;
+            border-radius: 20px;
+            background-color: white;
+        }
+        p{
+            margin-left :30px;
+        }
+    
+        button{ 
+            color: white;
+            background-image: linear-gradient(90deg,rgb(157, 92, 217),rgb(206, 190, 220))
+            ;
+            width:70px;
+            border-radius: 15px;
+            margin: 20px;
+            font-size:large;
+            color: black;
+            text-decoration: none;
+            transition: transform 800ms ease-in-out;
+        }
+        button:hover{
+            transform: scale(1.2);
+        }
+        #d1{
+            width: 60%;
+            align-content: center;
+            text-align: center;
+        }
+        #d2{
+         align-content: center;
+         text-align: center;
+         width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div id="d0">
+        <div id="d1">
+            <h1>SaathE</h1>
+            <p id="p1"></p>
+            <p id="p2"></p>
+        </div>
+        <div id="d2">
+            <h2></h2>
+            <img id="i1" src="Images/qr.png"><br/>
+            <a href="processpay.php"><button>Done</button></a>
+        </div>
+    </div>
+
+    <script>
+    let itemnames=["Redmi Note 10S cover","OnePlus Nord","HP pavillion","Boat bassheads","Ambrane car charger","MI mobile charger"];
+    let price=[180,16000,56000,200,450,999];
+    
+    document.getElementById('p1').innerHTML = "Delivery Address :"+localStorage.getItem('address');
+
+    const body = document.body,tbl = document.createElement('table');
+    var tr,td;
+    tbl.style.width = '700px';
+    tbl.style.border = '1px solid black';
+    tbl.style.height='200px';
+    
+    let itemcntar=JSON.parse(localStorage.getItem("itemcount"));
+    let tablhead=['Item Name','Price/Item','Quantity','Price'];
+    
+    tr=tbl.insertRow();
+    for(let i=0;i<4;i++)
+    {
+        td=tr.insertCell();
+        td.appendChild(document.createTextNode(tablhead[i]));
+        td.style.border = '1px solid black';
+    }
+    
+    for (let j = 0; j < itemcntar.length; j++) 
+    {
+        if(itemcntar[j]==0)
+            continue;
+        tr = tbl.insertRow();
+        
+        td = tr.insertCell();
+        td.appendChild(document.createTextNode(itemnames[j]));
+        td.style.border = '1px solid black';
+        
+        td = tr.insertCell();
+        td.appendChild(document.createTextNode(price[j]));
+        td.style.border = '1px solid black';
+
+        td = tr.insertCell();
+        td.appendChild(document.createTextNode(itemcntar[j]));
+        td.style.border = '1px solid black';
+
+        td = tr.insertCell();
+        td.appendChild(document.createTextNode(price[j]*itemcntar[j]));
+        td.style.border = '1px solid black';
+        
+    }
+    tr=tbl.insertRow();
+
+    td=tr.insertCell();
+    td.appendChild(document.createTextNode('Total :'));
+    td.colSpan="3";
+    td.style.border='1px black solid';
+
+    let total=0;
+    for(let i=0;i<itemcntar.length;i++)
+        total=total+price[i]*itemcntar[i];
+    document.cookie="total="+total;
+    td=tr.insertCell();
+    td.appendChild(document.createTextNode("₹ "+total));
+    td.style.border='1px black solid';
+
+    tbl.style.textAlign='center';
+    
+    document.getElementById('p2').appendChild(tbl);
+
+    box=document.querySelector('h2');
+    box.innerHTML="Scan given QR code for UPI payment :<br><br>Amount : ₹ "+total;
+
+    </script>
+</body>
+</html>

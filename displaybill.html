@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    
+    <style>
+        .noprint{
+            @media print {
+                display: none;
+            }
+        }
+        body{
+            background-color: rgb(214, 222, 247);
+        }
+        
+        h1,button{
+            display: inline;
+            margin: 50px;
+
+        }
+        #mhead{
+            background: linear-gradient(to right,violet,indigo,red);
+            background-clip: text;
+            color: transparent;
+        }
+        button{
+            border-radius: 20px;
+            border : 2px black solid;
+            justify-content: end;
+            align-items: end;
+        }
+        div{
+            margin: 120px 200px;
+            text-align: center;
+            background-color: white;
+            border-radius: 20px;
+        }
+        
+    </style>
+</head>
+<body  onload="tableCreate()">
+    <div>
+        <h1 id="mhead">SaathE</h1>
+        <h1 >Order Bill</h1>
+        <button onclick="generateinv()" class="noprint">Print Invoice</button>
+        <p></p>
+        <p id="p1" align="center"></p>
+        <p id="p2"></p>
+        <p id="p3"></p>
+        <br>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
